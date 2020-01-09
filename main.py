@@ -16,7 +16,6 @@ class MyWidget(QWidget):
             self.z = r(0, 200)
             self.p = r(0, 200)
             box = QVBoxLayout(self)
-
             self.setGeometry(150, 150, 400, 400)
             self.pushButton = QPushButton('Нажми на меня')
             box.addWidget(self.pushButton)
@@ -25,6 +24,15 @@ class MyWidget(QWidget):
             print(str(e))
 
     def draw(self):
+        dr = Drawer()
+        dr.start()
+
+
+class Drawer(QWidget):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+
+    def start(self):
         self.x = r(0, 200)
         self.y = r(0, 200)
         self.z = r(0, 200)
